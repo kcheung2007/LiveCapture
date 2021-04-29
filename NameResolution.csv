@@ -1,0 +1,12 @@
+Subject,To,CC,BCC,ZArchiveOrigionalRecipients,ZArchiveInternetRecipients1,ZArchiveRecipients1,ZArchiveBCC1,X-ZANTAZ-RECIPIENT-NAMES1
+TC1,"uc0000@carbon.dom.zantaz.com, UserC_C_C0011/EAS",UserC.C.C0012@carbon.dom.zantaz.com,,,,"""userc c c0013/eas@dom"" <userc.c.c0012@carbon.dom.zantaz.com> uc0000@carbon.dom.zantaz.com
+ userc_c_c0011/eas@dom;",,"""userc c c0013/eas@dom"",
+ <userc.c.c0012@carbon.dom.zantaz.com>,
+ uc0000@carbon.dom.zantaz.com,
+ userc_c_c0011/eas@dom"
+TC2,C0011@carbon.dom.zantaz.com,UserC.C.C0012@carbon.dom.zantaz.com,,<UserC.C.C0012@carbon.dom.zantaz.com>;,,cn=userc c c0011/o=eas@dom cn=userc c c0013/o=eas@dom userc.c.c0012@carbon.dom.zantaz.com;,,"cn=userc c c0011/o=eas@dom,
+ cn=userc c c0013/o=eas@dom,
+ userc.c.c0012@carbon.dom.zantaz.com"
+TC3,UserC_C_C0011/EAS,UserC.C.C0012@carbon.dom.zantaz.com,UserC C C0013/EAS,,,cn=userc c c0011/o=eas@dom cn=userc c c0013/o=eas@dom userc.c.c0012@carbon.dom.zantaz.com;,,"cn=userc c c0011/o=eas@dom,
+ cn=userc c c0013/o=eas@dom,
+ userc.c.c0012@carbon.dom.zantaz.com"

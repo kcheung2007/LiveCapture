@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Copyright (c) 2004-2007 Bloomberg LP. All Rights Reserved.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:element name="FileDump">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element ref="Conversation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NextFile" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Conversation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="RoomID"/>
+				<xs:element ref="StartTime"/>
+				<xs:element ref="StartTimeUTC"/>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Invite"/>
+					<xs:element ref="ParticipantEntered"/>
+					<xs:element ref="ParticipantLeft"/>
+					<xs:element ref="Message"/>
+					<xs:element ref="History"/>
+					<xs:element ref="SystemMessage"/>
+				</xs:choice>
+				<xs:element ref="EndTime"/>
+				<xs:element ref="EndTimeUTC"/>
+			</xs:sequence>
+			<xs:attribute name="Perspective" type="xs:string" default=" "/>
+			<xs:attribute name="RoomType" type="xs:string" default="C"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="History">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="StartTime"/>
+				<xs:element ref="StartTimeUTC"/>
+				<xs:element ref="EndTime"/>
+				<xs:element ref="EndTimeUTC"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Invite">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Inviter"/>
+				<xs:element ref="Invitee"/>
+				<xs:element ref="Content"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Invitee">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LoginName"/>
+				<xs:element ref="FirstName"/>
+				<xs:element ref="LastName"/>
+				<xs:element ref="ClientID1" minOccurs="0"/>
+				<xs:element ref="ClientID2" minOccurs="0"/>
+				<xs:element ref="UUID" minOccurs="0"/>
+				<xs:element ref="FirmNumber" minOccurs="0"/>
+				<xs:element ref="AccountNumber" minOccurs="0"/>
+				<xs:element ref="CompanyName"/>
+				<xs:element ref="EmailAddress"/>
+				<xs:element ref="CorporateEmailAddress"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Inviter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LoginName"/>
+				<xs:element ref="FirstName"/>
+				<xs:element ref="LastName"/>
+				<xs:element ref="ClientID1" minOccurs="0"/>
+				<xs:element ref="ClientID2" minOccurs="0"/>
+				<xs:element ref="UUID" minOccurs="0"/>
+				<xs:element ref="FirmNumber" minOccurs="0"/>
+				<xs:element ref="AccountNumber" minOccurs="0"/>
+				<xs:element ref="CompanyName"/>
+				<xs:element ref="EmailAddress"/>
+				<xs:element ref="CorporateEmailAddress"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="Content"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ParticipantEntered">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ParticipantLeft">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SystemMessage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="User"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="Content"/>
+				<xs:element ref="ConversationID"/>
+			</xs:sequence>
+			<xs:attribute name="InteractionType" type="xs:string" default=" "/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="User">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LoginName"/>
+				<xs:element ref="FirstName"/>
+				<xs:element ref="LastName"/>
+				<xs:element ref="ClientID1" minOccurs="0"/>
+				<xs:element ref="ClientID2" minOccurs="0"/>
+				<xs:element ref="UUID" minOccurs="0"/>
+				<xs:element ref="FirmNumber" minOccurs="0"/>
+				<xs:element ref="AccountNumber" minOccurs="0"/>
+				<xs:element ref="CompanyName"/>
+				<xs:element ref="EmailAddress"/>
+				<xs:element ref="CorporateEmailAddress"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccountNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID1">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID2">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CompanyName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Content">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConversationID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CorporateEmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateTimeUTC">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EndTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EndTimeUTC">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirmNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirstName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LastName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LoginName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NextFile">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RoomID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StartTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StartTimeUTC">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UUID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Version">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

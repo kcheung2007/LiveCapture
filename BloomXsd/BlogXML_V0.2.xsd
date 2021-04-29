@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Copyright (c) 2006-2007 Bloomberg LP. All Rights Reserved.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:element name="FileDump">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element ref="WebLog" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="WebLog">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="LogID"/>
+				<xs:element ref="CreateTime"/>
+				<xs:element ref="CreateTimeUTC"/>
+				<xs:element ref="Publisher"/>
+				<xs:element ref="FirmNumber"/>
+				<xs:element ref="Subject"/>
+				<xs:element ref="Language"/>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="Posting"/>
+					<xs:element ref="Attachment"/>
+				</xs:choice>
+				<xs:element ref="AccessControl" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="AccessType" type="xs:string" default="P"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Attachment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="Publisher"/>
+				<xs:element ref="FileName"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Posting">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="EntryID"/>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="Publisher"/>
+				<xs:element ref="Content"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccessControl">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Changed" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Deleted" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Changed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+				<xs:element ref="PreviousAccessType"/>
+				<xs:element ref="Viewers" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Deleted">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DateTime"/>
+				<xs:element ref="DateTimeUTC"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Publisher">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Viewers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="FirstName"/>
+				<xs:element ref="LastName"/>
+				<xs:element ref="FirmNumber" minOccurs="0"/>
+				<xs:element ref="AccountName"/>
+				<xs:element ref="AccountNumber" minOccurs="0"/>
+				<xs:element ref="BloombergUUID" minOccurs="0"/>
+				<xs:element ref="BloombergEmailAddress"/>
+				<xs:element ref="CorporateEmailAddress"/>
+				<xs:element ref="ClientID1" minOccurs="0"/>
+				<xs:element ref="ClientID2" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccountName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccountNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BloombergEmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BloombergUUID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID1">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID2">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Content">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CorporateEmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateTimeUTC">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DateTimeUTC">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EntryID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FileName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirmNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirstName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Language">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LastName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LogID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PreviousAccessType">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Subject">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Version">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

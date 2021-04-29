@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<FileDump>
+<Version>BLOGXML 0.2</Version>
+<WebLog AccessType = "P">
+<LogID>10675</LogID>
+<CreateTime>10/13/2006 01:14:23</CreateTime>
+<CreateTimeUTC>1160716463</CreateTimeUTC>
+<Publisher>
+<UserInfo>
+<FirstName>ANTON</FirstName>
+<LastName>NORMAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>88553300</BloombergUUID>
+<BloombergEmailAddress>ANORMAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>ANTON_NORMAL@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Publisher>
+<FirmNumber>222555</FirmNumber>
+<Subject>California Muni Offerings</Subject>
+<Language>English</Language>
+<Posting>
+<EntryID>1</EntryID>
+<DateTime>10/13/2006 01:14:23</DateTime>
+<DateTimeUTC>1160716463</DateTimeUTC>
+<Publisher>
+<UserInfo>
+<FirstName>ANTON</FirstName>
+<LastName>NORMAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>88553300</BloombergUUID>
+<BloombergEmailAddress>ANORMAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>ANTON_NORMAL@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Publisher>
+<Content>
+On a weekly basis, will be posting current California Municipal Bonds.
+If there is interest, my contact information is as follows:
+Anton Normal
+Muni Trading Director
+ATR Fund Management
+101 W. Main Street
+Gotham City, NY 10022
+(212) 999-9999
+</Content>
+</Posting>
+<Attachment>
+<DateTime>10/16/2006 09:40:40</DateTime>
+<DateTimeUTC>1161006040</DateTimeUTC>
+<Publisher>
+<UserInfo>
+<FirstName>ANTON</FirstName>
+<LastName>NORMAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>88553300</BloombergUUID>
+<BloombergEmailAddress>ANORMAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>ANTON_NORMAL@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Publisher>
+<FileName>Cali_Muni_4Q06.xls</FileName>
+</Attachment>
+</WebLog>
+<WebLog AccessType = "U">
+<LogID>12257</LogID>
+<CreateTime>10/17/2006 16:14:18</CreateTime>
+<CreateTimeUTC>1161116058</CreateTimeUTC>
+<Publisher>
+<UserInfo>
+<FirstName>ANTON</FirstName>
+<LastName>NORMAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>88553300</BloombergUUID>
+<BloombergEmailAddress>ANORMAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>ANTON_NORMAL@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Publisher>
+<FirmNumber>222555</FirmNumber>
+<Subject>Who needs muni's????</Subject>
+<Language>English</Language>
+<Posting>
+<EntryID>1</EntryID>
+<DateTime>10/17/2006 16:14:18</DateTime>
+<DateTimeUTC>1161116058</DateTimeUTC>
+<Publisher>
+<UserInfo>
+<FirstName>ANTON</FirstName>
+<LastName>NORMAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>88553300</BloombergUUID>
+<BloombergEmailAddress>ANORMAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>ANTON_NORMAL@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Publisher>
+<Content>
+Who needs anything like muni's or functionality surrounding it when you have blog
+pages. This will solve EVERYTHING!!!!
+</Content>
+</Posting>
+<AccessControl>
+<Changed>
+<DateTime>10/17/2006 16:14:18</DateTime>
+<DateTimeUTC>1161116058</DateTimeUTC>
+<PreviousAccessType>P</PreviousAccessType>
+<Viewers>
+<UserInfo>
+<FirstName>JANE</FirstName>
+<LastName>SMITH</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>456221</BloombergUUID>
+<BloombergEmailAddress>JSMITH13@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>JANE_SMITH@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+<UserInfo>
+<FirstName>IGOR</FirstName>
+<LastName>HUNCH</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>999753</BloombergUUID>
+<BloombergEmailAddress>IHUNCH@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>IGOR_HUNCH@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+<UserInfo>
+<FirstName>CHICO</FirstName>
+<LastName>ESCUELA</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>987654</AccountNumber>
+<BloombergUUID>5551212</BloombergUUID>
+<BloombergEmailAddress>CESCUELA2@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>CHICO_ESCUELA@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Viewers>
+</Changed>
+</AccessControl>
+</WebLog>
+</FileDump>

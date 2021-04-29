@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright (c) 2003-2006 Bloomberg LP. All Rights Reserved -->
+<FileDump>
+  <Version>IBXML 1.0</Version>
+  <Conversation Perspective="3333333">
+    <RoomID>CHAT-3333333-44444444-123456789</RoomID>
+    <StartTime>06/27/2006 15:09:11</StartTime>
+    <StartTimeUTC>1151420951</StartTimeUTC>
+    <ParticipantEntered InteractionID=" ">
+      <User>
+        <LoginName>UserA</LoginName>
+        <FirstName>UserA</FirstName>
+        <LastName>UserALastname</LastName>
+        <UUID>3333333</UUID>
+        <FirmNumber>9876</FirmNumber>
+        <CompanyName>TestFirm1</CompanyName>
+        <EmailAddress>UserA@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>corp@corp.zantaz.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:09:11</DateTime>
+      <DateTimeUTC>1151420951</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </ParticipantEntered>
+    <Invite InteractionID=" ">
+      <Inviter>
+        <LoginName>UserA</LoginName>
+        <FirstName>UserA</FirstName>
+        <LastName>UserALastname</LastName>
+        <UUID>3333333</UUID>
+        <FirmNumber>9876</FirmNumber>
+        <CompanyName>TestFirm1</CompanyName>
+        <EmailAddress>UserA@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>corp@corp.zantaz.com</CorporateEmailAddress>
+      </Inviter>
+      <Invitee>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </Invitee>
+      <Content>  still there?</Content>
+      <DateTime>06/27/2006 15:09:16</DateTime>
+      <DateTimeUTC>1151420956</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </Invite>
+    <ParticipantEntered InteractionID=" ">
+      <User>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:09:16</DateTime>
+      <DateTimeUTC>1151420956</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </ParticipantEntered>
+    <Message InteractionID=" ">
+      <User>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:09:27</DateTime>
+      <DateTimeUTC>1151420967</DateTimeUTC>
+      <Content>  yes</Content>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </Message>
+    <Message InteractionID=" ">
+      <User>
+        <LoginName>UserA</LoginName>
+        <FirstName>UserA</FirstName>
+        <LastName>UserALastname</LastName>
+        <UUID>3333333</UUID>
+        <FirmNumber>9876</FirmNumber>
+        <CompanyName>TestFirm1</CompanyName>
+        <EmailAddress>UserA@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>corp@corp.zantaz.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:11:26</DateTime>
+      <DateTimeUTC>1151421086</DateTimeUTC>
+      <Content>  left you VM message - call me when able. not urgent. thanks.</Content>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </Message>
+    <Message InteractionID=" ">
+      <User>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:12:25</DateTime>
+      <DateTimeUTC>1151421145</DateTimeUTC>
+      <Content>  i'm on the phone and our assistant/librarian left for a university position, so there is only vm</Content>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </Message>
+    <ParticipantLeft InteractionID=" ">
+      <User>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:12:30</DateTime>
+      <DateTimeUTC>1151421150</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </ParticipantLeft>
+    <Invite InteractionID=" ">
+      <Inviter>
+        <LoginName>UserA</LoginName>
+        <FirstName>UserA</FirstName>
+        <LastName>UserALastname</LastName>
+        <UUID>3333333</UUID>
+        <FirmNumber>9876</FirmNumber>
+        <CompanyName>TestFirm1</CompanyName>
+        <EmailAddress>UserA@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>corp@corp.zantaz.com</CorporateEmailAddress>
+      </Inviter>
+      <Invitee>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </Invitee>
+      <Content>  no problem. sorry about the librarian. was going to ask about that too. anyway, let's talk when you have a minute.</Content>
+      <DateTime>06/27/2006 15:13:28</DateTime>
+      <DateTimeUTC>1151421208</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </Invite>
+    <ParticipantEntered InteractionID=" ">
+      <User>
+        <LoginName>UserB</LoginName>
+        <FirstName>UserB</FirstName>
+        <LastName>UserBLastname</LastName>
+        <UUID>44444444</UUID>
+        <FirmNumber>11111</FirmNumber>
+        <CompanyName>TestFirm2</CompanyName>
+        <EmailAddress>UserB@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>UserB@SomeDomain.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:13:28</DateTime>
+      <DateTimeUTC>1151421208</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </ParticipantEntered>
+    <ParticipantLeft InteractionID=" ">
+      <User>
+        <LoginName>UserA</LoginName>
+        <FirstName>UserA</FirstName>
+        <LastName>UserALastname</LastName>
+        <UUID>3333333</UUID>
+        <FirmNumber>9876</FirmNumber>
+        <CompanyName>TestFirm1</CompanyName>
+        <EmailAddress>UserA@bloomberg.net</EmailAddress>
+        <CorporateEmailAddress>corp@corp.zantaz.com</CorporateEmailAddress>
+      </User>
+      <DateTime>06/27/2006 15:46:01</DateTime>
+      <DateTimeUTC>1151423161</DateTimeUTC>
+      <ConversationID>CHAT-3333333-44444444-123456789</ConversationID>
+    </ParticipantLeft>
+    <EndTime>06/27/2006 15:46:01</EndTime>
+    <EndTimeUTC>1151423161</EndTimeUTC>
+  </Conversation>
+</FileDump>

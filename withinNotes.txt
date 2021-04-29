@@ -1,0 +1,5 @@
+# TO, CC, BCC,From, password
+u1@team.zantaz.com,,,acopper,password0
+u2@team.zantaz.com; u1@team.zantaz.com,,,acopper,password0
+u1@team.zantaz.com,ub0012@team.zantaz.com; ub0011@team.zantaz.com,,acopper,password0
+u1@team.zantaz.com,,ua0013@team.zantaz.com; ub0013@team.zantaz.com,acopper,password0

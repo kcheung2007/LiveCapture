@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<FileDump>
+<Version>MSGXML 1.5</Version>
+<Message>
+<MsgID>558195618</MsgID>
+<MsgTime>2006-07-28-15.30.02.000000</MsgTime>
+<MsgTimeUTC>1154115002</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<OnBehalfOf>
+<UserInfo>
+<FirstName>DAVID</FirstName>
+<LastName>HOUSEMANN</LastName>
+<FirmNumber>Firm909090909</FirmNumber>
+<AccountName>GLOBAL CITY MARKETS</AccountName>
+<AccountNumber>1212121212</AccountNumber>
+<BloombergUUID>12121231313313</BloombergUUID>
+<BloombergEmailAddress>DHOUSEMANN@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+<ClientID1>text01010101</ClientID1>
+<ClientID2>text02020202</ClientID2>
+</UserInfo>
+</OnBehalfOf>
+    <OrigSender>
+      <UserInfo />
+    </OrigSender>
+<Sender>
+<UserInfo>
+<FirstName>DAVID</FirstName>
+<LastName>HOUSEMANN</LastName>
+<AccountName>GLOBAL CITY MARKETS</AccountName>
+<BloombergEmailAddress>DHOUSEMANN@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>JULIAN</FirstName>
+<LastName>MAYORAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775533</BloombergUUID>
+<BloombergEmailAddress>JMAYORAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>WHITNEY</FirstName>
+<LastName>FUNK</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775522</BloombergUUID>
+<BloombergEmailAddress>WFUNK@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+jdsu 77.25-77.75 v 1.55
+</Subject>
+<MsgBody>
+jdsu 77.25-77.75 v 1.55
+</MsgBody>
+<Greeting>Looking for >8% yield</Greeting>
+</Message>
+<Message>
+<MsgID>1594419787</MsgID>
+<MsgTime>2006-07-28-15.30.51.000000</MsgTime>
+<MsgTimeUTC>1154115051</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<OrigSender>
+<UserInfo>
+<FirstName>WHITNEY</FirstName>
+<LastName>FUNK</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775522</BloombergUUID>
+<BloombergEmailAddress>WFUNK@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</OrigSender>
+<Sender>
+<UserInfo>
+<FirstName>JULIAN</FirstName>
+<LastName>MAYORAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775533</BloombergUUID>
+<BloombergEmailAddress>JMAYORAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>GUS</FirstName>
+<LastName>MIKONOS</LastName>
+<AccountName>XYZ CAPITAL MARKETS</AccountName>
+<BloombergEmailAddress>CMIKONOS@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+BUYER
+</Subject>
+<MsgBody>
+STONE CONTAINER SSCC 7 1/4 95__- 2MM
+</MsgBody>
+</Message>
+<Message>
+<MsgID>3452656403</MsgID>
+<MsgTime>2006-07-28-15.30.56.000000</MsgTime>
+<MsgTimeUTC>1154115056</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<Sender>
+<UserInfo>
+<FirstName>SANTORO</FirstName>
+<LastName>ADEMA</LastName>
+<AccountName>GLOBAL CITY MARKETS</AccountName>
+<BloombergEmailAddress>SADEMA@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>JULIAN</FirstName>
+<LastName>MAYORAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775533</BloombergUUID>
+<BloombergEmailAddress>JMAYORAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>BERNIE</FirstName>
+<LastName>PARKAY</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775511</BloombergUUID>
+<BloombergEmailAddress>BPARKAY@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>bparkay@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>WHITNEY</FirstName>
+<LastName>FUNK</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775522</BloombergUUID>
+<BloombergEmailAddress>WFUNK@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+Fwd: **Correlation Color 8/17**
+</Subject>
+<MsgBody>
+slow day in correlation space. In 5y, after a very volatile day yesterday,
+equity seemed be very stable, trading wider only __pt, leaving it wrapped44.
+Little activity in 3-7% and 7-10%, however, prints on thesewere tighter (3-7: 148,
+147, 7-10: 42, 41__). In 10y, 3-7% traded upthe second straight day to 650, and saw
+the first flurry of activity in atime on 15-30%, ended up the day wrapped around 35.
+In general, saw a lotactivity earlier in the week up and down the capital structure in
+different, and saw the market become a little firmer with more size going
+through.everyone enjoys their weekend.
+</MsgBody>
+</Message>
+<Message>
+<MsgID>3463244760</MsgID>
+<MsgTime>2006-07-28-15.31.23.000000</MsgTime>
+<MsgTimeUTC>1154115083</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<OnBehalfOf>
+<UserInfo>
+<FirstName>QUENTIN</FirstName>
+<LastName>KNAPP</LastName>
+<AccountName>WHATEVER SECURITIES</AccountName>
+<BloombergEmailAddress>QKNAPP@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</OnBehalfOf>
+<Sender>
+<UserInfo>
+<FirstName>LINDA</FirstName>
+<LastName>TOMMY</LastName>
+<AccountName>WHATEVER SECURITIES</AccountName>
+<BloombergEmailAddress>LTOMMY@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>MARIKO</FirstName>
+<LastName>NIKATA</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775544</BloombergUUID>
+<BloombergEmailAddress>MNIKATA@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>mnikata@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>CHARLES</FirstName>
+<LastName>PFIZAR</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775555</BloombergUUID>
+<BloombergEmailAddress>CPFIZAR@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>cpfizar@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>TAKA</FirstName>
+<LastName>KASSAM</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775566</BloombergUUID>
+<BloombergEmailAddress>TKASSAM@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>tkassam@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>BERNIE</FirstName>
+<LastName>PARKAY</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775511</BloombergUUID>
+<BloombergEmailAddress>BPARKAY@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>bparkay@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+Fwd: WEEKLY RECAP: MACRO DRIVES THE MICRO
+</Subject>
+<MsgBody>
+STATS:+1.85% TPX +2.03% S&amp;P +1.45% NASDAQ +1.29%+9.2% (ALL TIME HIGH)
+$/?LAT _/?1.3% _/$ +1.3%
+BEST:MINERS +6.02%, IRON &amp; STEEL +4.4%, WAREHOUSE +3.76%WORST:AIR TRANSPORTS -
+7BPS, UTILITIES +48BPS, RUBBER PRODUCTS +50BPS
+*Japan and the U.S HIGHER for 6 days in a row led by RESOURCES and CYCLICALS.the
+second week in a row, Japanese Banks were in focus(tho&apos; a bit upstagedmaterials)
+as the sector received two UPGRADES from competitors and onespecific(MIZUHO 8411)
+DOWNGRADE from a third. For the week, Banks close
++2.10% and the chart suggests momentum is to the UPSIDE {TPNBNK Index GPO&lt;go&gt;}
+*Macro proved MIXED with Weaker Than Expected(WTE) data being largely ignoredBetter
+than Expected(BTE) data was what was paid attention too.(A sign ofpsychology) Japanese
+GDP and IP both WTE but DEFLATOR &amp; MACHINE ORDERS. US PPI &amp; CPI show inflation
+TAME.(but a May number when Crude was -7.5%)MFG and IP BTE but PHILLY FED WTE. DOE
+MSG Daily Dump XML Format NY R&amp;D Message Compliance
+Section 3 Version: 1.5
+Author: Hector M Olmeda Page 32 of 38 Date: June 21, 2007
+DO NOT DISTRIBUTE WITHOUT PERMISSION
+data showed a big DRAW in Crude(Crude BULLISH) giving RISE to energy shares globally.
+N.A.Semi B to B.85 vs .81 for Apr and at 2005 HIGHS continues to show IMPROVEMENT.
+LastlyIP and FIXED ASSET INVESTMENT both BTE and both played a BIG role in this&apos;s
+RALLY in Resources, Cyclicals and Commodities.
+*The Macro drives the Micro, putting a bid in stocks globally with &quot;Tech
+Heavy&quot;at 13 month HIGHS, &quot;Old&quot; Europe hitting 3 year HIGHS, and
+&quot;Resource Rich&quot;
+Australia capturing ALL TIME HIGHS! Resources(ie. Oil &amp; Miners) OUTPERFORM ondata.
+Cyclicals(Steels, Chems) OUTPERFORM despite sensitivity to HIGHERcosts. SHIN
+ETSU(4063)+3.3%, DOW +4%, JFE(5411)+5.2%, X+8%, ARCELOR(LOR
+FP)+6.6%. China and US I.P. UNDERPIN commodities. Copper(+16.7% since 5/23)with an ALL
+TIME HIGH. Aluminum +1.5% for the week too. Reflecting thein Cyclicals, Chemicals and
+Commodities has been US Homebuilders.+28% YTD and TOLL BROS(TOL)+53% YTD. All of the
+above may give the
+Fed cause to keep RAISING rates longer than expected
+reported last week about gold and its apparent decoupling from thewith the
+$.(INVERSELY related) As you will note from the attached, the $ has COOLED vs the _
+but Gold $438.70 continues to trade{GOLDS Comdty GPO&lt;GO&gt;}There are a few
+POSSIBLE reasons for this. Tradersbe BEARISH on prospects for the _ and concerned
+about the health of $ somove it to Gold. Another plausible reason could be that on
+the back of its
+decision to FORGIVE $40B in debt to 18 African nations,the G8 has DROPPED to sell Gold
+held by the IMF. Instead, the G8 has said the IMF has enoughto fund debt owed to it
+without the need to make sales (BN)
+</MsgBody>
+<Greeting>
+Ask me about Copper
+</Greeting>
+</Message>
+<Message>
+<MsgID>3204072625</MsgID>
+<MsgTime>2006-07-28-15.33.23.000000</MsgTime>
+<MsgTimeUTC>1154115203</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<Sender>
+<UserInfo>
+<FirstName>BRANDON</FirstName>
+<LastName>SMYTHE</LastName>
+<AccountName>ACME FINANCIAL PRODU</AccountName>
+<BloombergEmailAddress>BSMYTHE@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>JULIAN</FirstName>
+<LastName>MAYORAL</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775533</BloombergUUID>
+<BloombergEmailAddress>JMAYORAL@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>BERNIE</FirstName>
+<LastName>PARKAY</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775511</BloombergUUID>
+<BloombergEmailAddress>BPARKAY@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>bparkay@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+DVN 0% LOCKED LOCKED v 49.35, 57.45 locked!
+</Subject>
+<MsgBody>
+DVN 0% LOCKED LOCKED v 49.35, 57.45 locked!
+</MsgBody>
+</Message>
+<Message>
+<MsgID>2453686440</MsgID>
+<MsgTime>2006-07-28-15.36.35.000000</MsgTime>
+<MsgTimeUTC>1154115395</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<Sender>
+<UserInfo>
+<FirstName>YELENA</FirstName>
+<LastName>MILLS</LastName>
+<AccountName>BLUES BROTHERS, INC</AccountName>
+<BloombergEmailAddress>YMILLS@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress></CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName>CHARLES</FirstName>
+<LastName>PFIZAR</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775555</BloombergUUID>
+<BloombergEmailAddress>CPFIZAR@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>cpfizar@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+GDT/JNJ 2.85 unwinder 100K
+</Subject>
+<MsgBody>
+GDT/JNJ 2.85 unwinder 100K
+</MsgBody>
+<Greeting>
+EUR/JPY Swaps are HOT!!!
+</Greeting>
+</Message>
+<Message>
+<MsgID>2716215466</MsgID>
+<MsgTime>2006-07-28-15.38.25.000000</MsgTime>
+<MsgTimeUTC>1154115505</MsgTimeUTC>
+<MsgLang>English</MsgLang>
+<Sender>
+<UserInfo>
+<FirstName>CHARLES</FirstName>
+<LastName>PFIZAR</LastName>
+<FirmNumber>222555</FirmNumber>
+<AccountName>ATR FUND MANAGEMENT</AccountName>
+<AccountNumber>553311</AccountNumber>
+<BloombergUUID>99775555</BloombergUUID>
+<BloombergEmailAddress>CPFIZAR@bloomberg.net</BloombergEmailAddress>
+<CorporateEmailAddress>cpfizar@atrfund.com</CorporateEmailAddress>
+</UserInfo>
+</Sender>
+<Recipient DeliveryType = " ">
+<UserInfo>
+<FirstName></FirstName>
+<LastName>Roger Bandido</LastName>
+<AccountName></AccountName>
+<BloombergEmailAddress></BloombergEmailAddress>
+<CorporateEmailAddress>rbandido@yahoo.com</CorporateEmailAddress>
+</UserInfo>
+</Recipient>
+<Subject>
+***GYI 159__-160 VS 74.10...
+</Subject>
+<Attachment>
+<FileName>1411062_sg564676.gif</FileName>
+</Attachment>
+<MsgBody>
+***GYI 159__-160 VS 74.10...
+</MsgBody>
+<DisclaimerReference>999999</DisclaimerReference>
+</Message>
+</FileDump>

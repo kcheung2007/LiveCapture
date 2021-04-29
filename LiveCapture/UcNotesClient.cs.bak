@@ -1,0 +1,545 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace LiveCapture
+{
+    public partial class UcNotesClient : UserControl
+    {
+        private int _delay = 0;
+        private int _loop = 1;
+        private int _sentCount = 0; // number of mail sent out
+        private int _failCount = 0; // number of fail count
+        private bool _ckGuid = false; // default don't include guid
+        private bool _ckMultiAttach = false; // for UI mailing
+        private bool _ckAttach = false; // for the file mailing
+        private string _addrFile = "";
+        private string _attachFolder = ""; // for file
+        private string _attachFile = ""; //for UI
+        private string _password = ""; // Notes password
+        private string _memo = ""; // nsf db name
+        private string _to = "";
+        private string _cc = "";
+        private string _bcc = "";
+        private string _txtSubject = ""; // default subject - variable reuse for UI update
+        private string _richBox = ""; // default richard text box - variable reuse for UI update
+
+        private CommObj commObj = new CommObj();
+        private AttachObj attachObj = null;
+
+        private delegate void DelegateUpdate_txtSubject(string szSubject);
+        private DelegateUpdate_txtSubject m_delegateShowSubject;
+
+        private delegate void DelegateUpdate_richBox(string szMsg);
+        private DelegateUpdate_richBox m_delegateDisplayMsg;
+
+        public event UpdateStatusEventHandler statusChanged;
+
+        public UcNotesClient()
+        {
+            InitializeComponent();
+            m_delegateShowSubject = new DelegateUpdate_txtSubject(Update_txtSubject);
+            m_delegateDisplayMsg = new DelegateUpdate_richBox(Update_richBox);
+        }
+
+        private void Update_txtSubject(string szSubject)
+        {
+            txtSubject.Text = szSubject;
+        }//end of Update_txtSubject
+
+        private void Update_richBox(string szMsg)
+        {
+            richBox.Text = szMsg;
+        }//end of Update_richBox
+        // "StatusEventArgs" - argument in EventArgs class
+        protected virtual void OnUpdateStatusBar(StatusEventArgs eArgs)
+        {
+            statusChanged(this, eArgs);
+        }//end of OnUpdateStatusBar
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            SetInitData();
+            if (rdoUI.Checked) // selected - info from UI
+            {
+                LnUiSendMail();
+            }//end of if - select info from UI
+            else
+                if (rdoFile.Checked)
+                {
+                    //LnFileSendMail();
+                }//end of if - select info from file
+        }//end of btnSend_Click
+
+        private void EnableFileUI(bool val)
+        {
+            lnkFile.Enabled = val;
+            txtFile.Enabled = val;
+            chkAttach.Enabled = val;
+            lnkFolder.Enabled = val;
+            txtFolder.Enabled = val;
+        }//end of EnableFileUI
+
+        private void EnableMailUI(bool val)
+        {
+            lnkTo.Enabled = val;
+            lnkCC.Enabled = val;
+            lnkBCC.Enabled = val;
+            lnkAttach.Enabled = val;
+            cboTo.Enabled = val;
+            cboCC.Enabled = val;
+            cboBCC.Enabled = val;
+            txtAttach.Enabled = val;
+            chkMultiAttach.Enabled = val;
+        }//end of EnableMailUI
+        private void rdoFile_Click(object sender, EventArgs e)
+        {
+            rdoFile.Checked = true;
+            rdoUI.Checked = false;
+
+            EnableFileUI( true );                
+            EnableMailUI( false );
+        }//end of rdoFile_Click
+
+        private void rdoUI_Click(object sender, EventArgs e)
+        {
+            rdoFile.Checked = false;
+            rdoUI.Checked = true;
+
+            EnableFileUI( false );
+            EnableMailUI( true );
+
+        }//end of rdoUI_Click
+
+        /// <summary>
+        /// Set the initial data from UI. 
+        /// </summary>
+        private void SetInitData()
+        {
+            if (rdoFile.Checked)
+            {
+                _addrFile = txtFile.Text;
+                _attachFolder = txtFolder.Text;
+                _ckAttach = chkAttach.Checked;
+            }
+            else
+                if (rdoUI.Checked)
+                {
+                    _password = txtPassword.Text;
+                    _to = cboTo.Text;
+                    _cc = cboCC.Text;
+                    _bcc = cboBCC.Text;
+                    _ckMultiAttach = chkMultiAttach.Checked;
+                    _attachFile = txtAttach.Text;
+                }
+            
+            _memo = cboMemo.Text;
+            _txtSubject = txtSubject.Text;
+            _richBox = richBox.Text;
+            _delay = (int)nudDelay.Value;
+            _loop = (int)nudLoop.Value;
+            _ckGuid = chkGUID.Checked;
+
+            _sentCount = 0; //reset
+            _failCount = 0;
+        }//end of void SetInitData
+
+        /// <summary>
+        /// Send notes client mail based on user input from UI. Send one mail at a time.
+        /// Only create one session and then loop through it.
+        /// Initialize: this method can be used on a computer with a Notes client or Domino server 
+        /// and bases the session on the current user ID. If a password is specified, it must match 
+        /// the user ID password. If a password is not specified, the user is prompted for a password 
+        /// as required and as the software permits. If the software does not support prompting 
+        /// (for example, VBScript under ASP/IIS), you must supply the password or the user ID must not have one. 
+        /// InitializeUsingNotesUserName: this method can be used only on a computer with a Domino server. 
+        /// If a name is specified, the InitializeUsingNotesUserName method looks it up in the local Domino 
+        /// Directory and permits access to the local server depending on the "Server Access" and 
+        /// "COM Restrictions" settings. The password must match the Internet password associated with the name. 
+        /// If no name is specified, access is granted if the server permits Anonymous access.
+        /// </summary>
+        private void LnUiSendMail()
+        {
+            Debug.WriteLine("UcMailClient.cs - LnUiSendMail");
+            Domino.NotesSession domSession = null;
+            //int counter = 0;
+            try
+            {
+                domSession = new Domino.NotesSession();
+
+                // only with computer with Domino Server installed
+                // domSession.InitializeUsingNotesUserName("admin Administrator/team", "password0");
+
+                // used on a computer with a Notes client/Domino server 
+                // and bases on the session on the current user ID - admin.id
+                // domSession.Initialize("");
+                domSession.Initialize(_password);
+            }//end of try
+            catch (Exception exSession)
+            {
+                string msg = "Fail in creating Notes Session\n" + exSession.Message + "\n"
+                    + exSession.GetType().ToString() + "\n";
+                MessageBox.Show(msg, "UcNotesClient");
+                Debug.WriteLine(msg + "\n" + exSession.StackTrace);
+
+                Debug.WriteLine("NotesClient.cs -   Session Fail: releaseing session COM Object");
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(domSession);
+
+            }//end of catch - notes session exception
+
+            string strGUID = "";
+            string strTmpSubj = "";
+            try
+            {
+                Domino.NotesDbDirectory domDBDir = domSession.GetDbDirectory("");
+                //Domino.NotesDbDirectory domDBDir = domSession.GetDbDirectory( "oxygen" );
+                for (int j = 0; j < _loop; j++)
+                {
+                    if (chkGUID.Checked)
+                    {
+                        strGUID = System.Guid.NewGuid().ToString();
+                        strTmpSubj = _txtSubject + j.ToString() + " " + strGUID;
+                        commObj.LogGUID("lnGUID.LOG", strGUID);
+                    }//end of if - GUID
+                    else
+                        strTmpSubj = _txtSubject; // always same
+
+                    _richBox = "\nUser name: " + domSession.UserName
+                             + "\nServer name: " + domSession.ServerName; // server name is null                
+
+                    string strTo = _to;
+                    string strCC = _cc;
+                    string strBCC = _bcc;
+
+                    string[] toArray = strTo.Split(new char[] { ',', ';' });
+                    string[] ccArray = strCC.Split(new char[] { ',', ';' });
+                    string[] bccArray = strBCC.Split(new char[] { ',', ';' });
+                    string inSubject = j.ToString() + " " + strTmpSubj;
+                    string bodyText = "";
+                    //string notesItems = _memo; 
+
+                    Domino.NotesDatabase notesDB;
+                    Domino.NotesDocument notesDoc;
+                    Domino.NotesItem docForm;
+                    Domino.NotesItem docSubject;
+                    Domino.NotesItem docCopyTo;  // CC
+                    Domino.NotesItem docBlindCC; // BCC
+                    Domino.NotesRichTextItem docRTFBody;
+
+                    Object recipients = toArray;
+                    Object carboncopy = ccArray;
+                    Object blindcopy = bccArray;
+
+                    notesDB = domDBDir.OpenMailDatabase();
+                    notesDoc = notesDB.CreateDocument();
+
+                    docForm = notesDoc.ReplaceItemValue("Form", _memo);
+                    docSubject = notesDoc.ReplaceItemValue("Subject", inSubject);
+                    docCopyTo = notesDoc.ReplaceItemValue("CopyTo", carboncopy);
+                    docBlindCC = notesDoc.ReplaceItemValue("BlindCopyTo", blindcopy);
+                    docRTFBody = notesDoc.CreateRichTextItem("Body");
+
+                    bodyText = _richBox
+                        + "\n To: " + _to
+                        + "\n CC: " + _cc
+                        + "\n BCC: " + _bcc
+                        + "\n Notes_Subject: " + inSubject
+                        + "\n " + DateTime.Now + "\n";
+
+                    Trace.WriteLine("Before docRTFBody.AppendText " + docRTFBody.Values.ToString());
+                    docRTFBody.AppendText(bodyText);
+                    Trace.WriteLine("docRTFBody.AppendText( bodyText )");
+
+                    string fn = _attachFile;
+                    if (fn != "")
+                    {
+                        bodyText += fn;
+                        char[] delim = new char[] { ';' };
+                        foreach (string str in fn.Split(delim))
+                        {
+                            docRTFBody.EmbedObject(Domino.EMBED_TYPE.EMBED_ATTACHMENT, "", str, "");
+                        }//end of foreach
+                    }//end of if - adding attachment
+
+                    // update UI info:
+                    IAsyncResult rs = BeginInvoke(m_delegateShowSubject, new object[] { inSubject });
+
+                    notesDoc.Send(false, ref recipients); // send notes mail
+                    _sentCount++;
+#if(DEBUG)
+                    commObj.LogToFile("Notes Document sent");
+#endif
+                }//end of for
+            }//end of try
+            catch (Exception ex)
+            {
+                string msg = ex.Message + "\n" + ex.GetType().ToString() + "\n" + ex.StackTrace;
+                MessageBox.Show(msg, "Handle UI Info");
+                _failCount++;
+            }//end of catch - exception
+            finally
+            {
+                Debug.WriteLine("NotesClient.cs - finally - releaseing session COM Object");
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(domSession);
+            }//end of finally
+
+            string info = "Total mail sent = " + _sentCount + "\r\n"
+                       + "Total fail count = " + _failCount;
+
+            IAsyncResult ra = BeginInvoke(m_delegateDisplayMsg, new object[] { info });
+        }//end of LnUiSendMail
+
+        /// <summary>
+        /// Read from a file for all senders, receivers
+        /// Text file format: To, CC, BCC, From, password.
+        /// Each field separated by comma, mail addresses in each field separated by semi-colon;
+        /// Two Loops:
+        /// 1) Inner loop: sending mail based on the number of 'TO' users in the text file within a session.
+        /// 2) Outer loop: repeat the whole mailing list in the file. Each loop will create a new session.
+        /// Therefore, total number of sent mail == inner loop x outer loop.
+        /// </summary>
+        
+        private void LnFileSendMail()
+        {
+            Trace.WriteLine("UcMailClient.cs - HandleFileSendMail()");
+
+            //            int counter = 0; // mail sent count
+            string tmpSubj = _txtSubject; // save the user input subject
+            string tmpBody = _richBox;	  // save the rich Box info
+
+            string strTo = "";
+            string strCC = "";
+            string strBCC = "";
+
+            string[] toArray;
+            string[] ccArray;
+            string[] bccArray;
+            string inSubject = "";
+            //string bodyText = "";
+            string notesItems = "";
+
+            Domino.NotesDatabase notesDB;
+            Domino.NotesDocument notesDoc;
+            Domino.NotesItem docForm;
+            Domino.NotesItem docSubject;
+            Domino.NotesItem docCopyTo;  // CC
+            Domino.NotesItem docBlindCC; // BCC
+            Domino.NotesRichTextItem docRTFBody;
+
+            Object recipients;
+            Object carboncopy;
+            Object blindcopy;
+
+            StreamReader sr = null;
+
+            //StreamReader sr = new StreamReader( txtFile.Text ); // address book - put here for exception catch
+            if (chkAttach.Checked) // point to attachment folder ONLY
+                attachObj = new AttachObj(_attachFolder);
+
+            for (int j = 0; j < _loop; j++)
+            {
+                string strGUID = "";
+                string strLine = "";
+
+                Trace.WriteLine("\t inside for loop: Open Domino Session");
+                Domino.NotesSession domSession = new Domino.NotesSession();
+                try
+                {   // only with computer with Domino Server installed
+                    // domSession.InitializeUsingNotesUserName("atest0", "password0");
+
+                    // used on a computer with a Notes client/Domino server 
+                    // and bases on the session on the current user ID - admin.id
+                    // domSession.Initialize("");
+
+                    // TO DO: Need to modify, should NOT reuse the UI password field.
+                    domSession.Initialize(_password);
+                }//end of try
+                catch (Exception exSession)
+                {
+                    string msg = "Fail in creating Notes Session\n" + exSession.Message + "\n"
+                        + exSession.GetType().ToString() + "\n" + exSession.StackTrace;
+                    MessageBox.Show(msg, "WsClient");
+
+                    Debug.WriteLine("\t Session Fail in LnFileSendMail: releaseing session COM Object");
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(domSession);
+                }//end of catch - notes session exception
+
+                try
+                {
+                    Domino.NotesDbDirectory domDBDir = domSession.GetDbDirectory("");
+                    sr = new StreamReader(_addrFile); // address book - put here for exception catch
+
+                    Debug.WriteLine("\t Inside for loop - create stream reader");
+                    Debug.WriteLine("\t StreamReader = " + sr.ToString());
+
+                    while ((strLine = sr.ReadLine()) != null) // file name from txtFrom field
+                    {
+                        _sentCount++;
+                        Debug.WriteLine("\t - LnFileSendMail - inside while loop : " + _sentCount.ToString());
+                        if (strLine[0] != '#') // skip all comment - first character
+                        {
+                            _richBox = "\r\n- Read line : " + strLine;
+                            if (chkGUID.Checked)
+                            {
+                                strGUID = System.Guid.NewGuid().ToString();
+                                _txtSubject = tmpSubj + " " + strGUID;
+                                // commObj.LogGUID( "GUID.LOG", strGUID );
+                            }//end of if - GUID			
+
+                            string[] splitStr = new string[5]; // match with the colum of input text file						
+                            splitStr = strLine.Split(new Char[] { ',' }); // each field separated by comma
+
+                            Trace.WriteLine("string[0] = " + splitStr[0].ToString());
+                            Trace.WriteLine("string[1] = " + splitStr[1].ToString());
+
+                            for (int k = 0; k < splitStr.Length; k++) // trim leading and ending space
+                            {
+                                Debug.WriteLine("k = " + k.ToString() + " splitStr = " + splitStr[k].ToString());
+                                splitStr[k] = splitStr[k].Trim(' ');
+                            }//end of for
+
+                            Debug.WriteLine("after for loop - triming leading and ending space");
+                            if (splitStr.Length == 5) // must exactly 5 cloumn
+                            {
+                                Debug.WriteLine("split string == 5. Inside if");
+                                strTo = splitStr[0];
+                                strCC = splitStr[1];
+                                strBCC = splitStr[2];
+
+                                toArray = strTo.Split(new char[] { ';' });
+                                ccArray = strCC.Split(new char[] { ';' });
+                                bccArray = strBCC.Split(new char[] { ';' });
+                                inSubject = _sentCount.ToString() + " " + _txtSubject;
+                                //bodyText = _richBox;
+                                notesItems = "memo"; // hard code
+
+                                recipients = toArray;
+                                carboncopy = ccArray;
+                                blindcopy = bccArray;
+
+                                Debug.WriteLine("Will open domino DB ");
+                                notesDB = domDBDir.OpenMailDatabase();
+                                Debug.WriteLine("After open domino DB " + notesDB.ToString());
+
+                                notesDoc = notesDB.CreateDocument();
+                                docForm = notesDoc.ReplaceItemValue("Form", notesItems);
+                                docSubject = notesDoc.ReplaceItemValue("Subject", inSubject);
+                                docCopyTo = notesDoc.ReplaceItemValue("CopyTo", carboncopy);
+                                docBlindCC = notesDoc.ReplaceItemValue("BlindCopyTo", blindcopy);
+                                docRTFBody = notesDoc.CreateRichTextItem("Body");
+
+                                _richBox = tmpBody
+                                    + "\n To: " + _to
+                                    + "\n CC: " + _cc
+                                    + "\n BCC: " + _bcc
+                                    + "\n Notes_Subject: " + _txtSubject
+                                    + "\n " + DateTime.Now + "\n";
+                                docRTFBody.AppendText(_richBox);
+
+                                if (chkAttach.Checked)
+                                {
+                                    if (attachObj.idxAttach == attachObj.numFile)
+                                        attachObj.idxAttach = 0; //reset
+
+                                    Debug.WriteLine(attachObj.idxAttach, "\t - idxAttach");
+                                    Debug.WriteLine(attachObj.attchFullName, "\t - filename");
+                                    docRTFBody.EmbedObject(Domino.EMBED_TYPE.EMBED_ATTACHMENT, "", attachObj.attchFullName, "");
+
+                                    _richBox += "\r\nAttach file index = " + attachObj.idxAttach
+                                             + "\r\nAttach file name = " + attachObj.attchFullName;
+
+                                    attachObj.idxAttach++; // point to next file
+                                }//end of if
+
+                                // update UI info:
+                                //txtSubject.Text = inSubject;
+                                //richBox.Text = bodyText;
+
+                                Trace.WriteLine("Just before sending mail");
+                                notesDoc.Send(false, ref recipients); // send notes mail
+                                _sentCount++;
+                                Trace.WriteLine("Just after sending mail");
+
+                                _richBox = ""; // reset
+                                _txtSubject = tmpSubj;
+                                if (chkGUID.Checked)
+                                {	// log the guid after dumpToOutbox
+                                    commObj.LogGUID("GUID.LOG", strGUID);
+                                }//end of if - GUID
+                            }//end of if - correct file 
+                        }//end of if - skip comment                        
+                        Thread.Sleep(_delay); // 2 sec
+                    }//end of while
+                }//end of try
+                catch (Exception ex)
+                {
+                    Trace.WriteLine(ex.Message.ToString(), "\t Exception");
+                    commObj.LogGUID("lnGUID.LOG", "Exception occur " + strGUID.ToString() + "\r\n" + ex.Message.ToString());
+                    _failCount++;
+                }//end of catch - exception
+                finally
+                {
+                    if (sr != null)
+                    {
+                        Trace.WriteLine("Finally - close the Stream Reader");
+                        sr.Close();
+                    }//end of if
+
+                    string msg = "Total mail sent = " + _sentCount + "\r\n"
+                               + "Total fail count = " + _failCount + "\r\n"
+                               + "Please check the lnGUID.LOG for detail";
+
+                    IAsyncResult rs = BeginInvoke(m_delegateDisplayMsg, new object[] { msg });
+                }//end of finally - clean up everything
+            }//end of for
+
+            //            richBox.Text = "Total Mail send: " + counter.ToString();
+
+            commObj.LogToFile("WcMailClient.cs +++ End of LnFileSendMail() +++");
+        }        
+
+        private void UcNotesClient_Load(object sender, EventArgs e)
+        {
+//            LoadComboBoxes(); // cannot do in constructor
+        }
+
+        private void lnkAttach_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string[] fileNames;
+
+            OpenFileDialog ofDlg = new OpenFileDialog();
+            if(chkMultiAttach.Checked)
+            {
+                ofDlg.Multiselect = true;
+                if(ofDlg.ShowDialog() == DialogResult.OK)
+                {
+                    fileNames = ofDlg.FileNames;
+                    foreach(string str in fileNames)
+                    {
+                        txtAttach.Text += ";" + str;
+                    }//end of foreach
+
+                    //check the first char
+                    string tmpStr = txtAttach.Text.ToString();
+                    if(tmpStr[0] == ';')
+                        txtAttach.Text = txtAttach.Text.Remove( 0, 1 );
+                }//end of if		
+            }//end of if
+            else
+            {
+                if(ofDlg.ShowDialog() == DialogResult.OK)
+                {
+                    txtAttach.Text = ofDlg.FileName;
+                }//end of if		
+            }//end of else        
+        }//end of LnFileSendMail
+
+    }
+}

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCapture", "LiveCapture\LiveCapture.csproj", "{1D99C08D-C588-40DB-AA9F-A264B31B78EF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupCapture", "SetupCapture\SetupCapture.vdproj", "{24B1DB11-0A44-4337-A25C-4E8CE787DAA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandableGridView", "TreeGridView\ExpandableGridView.csproj", "{2EFE526F-79B3-49BC-9575-A7B258C59BB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D99C08D-C588-40DB-AA9F-A264B31B78EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D99C08D-C588-40DB-AA9F-A264B31B78EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D99C08D-C588-40DB-AA9F-A264B31B78EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D99C08D-C588-40DB-AA9F-A264B31B78EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B1DB11-0A44-4337-A25C-4E8CE787DAA2}.Debug|Any CPU.ActiveCfg = Debug
+		{24B1DB11-0A44-4337-A25C-4E8CE787DAA2}.Release|Any CPU.ActiveCfg = Release
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D874686D-3BC5-46A0-BB76-6D426BBF9DDD}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Authored by Arun Kumar -->
+<!-- Updated by Hector Olmeda -->
+<!--Copyright (c) 2003-2006 Bloomberg LP. All Rights Reserved.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:element name="FileDump">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Disclaimer" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="MsgID"/>
+				<xs:element ref="MsgTime"/>
+				<xs:element ref="MsgLang"/>
+				<xs:choice minOccurs="0">
+					<xs:element ref="OnBehalfOf"/>
+					<xs:element ref="SharedMessenger"/>
+				</xs:choice>
+				<xs:element ref="OrigSender" minOccurs="0"/>
+				<xs:element ref="Sender"/>
+				<xs:element ref="Recipient" maxOccurs="unbounded"/>
+				<xs:element ref="Subject"/>
+				<xs:element ref="Attachment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MsgBody"/>
+				<xs:element ref="DisclaimerReference" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Disclaimer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DisclaimerReference"/>
+				<xs:element ref="DisclaimerText"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UserInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="FirstName"/>
+				<xs:element ref="LastName"/>
+				<xs:element ref="FirmNumber" minOccurs="0"/>
+				<xs:element ref="AccountName"/>
+				<xs:element ref="AccountNumber" minOccurs="0"/>
+				<xs:element ref="BloombergUUID" minOccurs="0"/>
+				<xs:element ref="BloombergEmailAddress"/>
+				<xs:element ref="CorporateEmailAddress"/>
+				<xs:element ref="ClientID1" minOccurs="0"/>
+				<xs:element ref="ClientID2" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OnBehalfOf">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrigSender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Recipient">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+				<xs:element ref="ForwardedBy" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Sender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SharedMessenger">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UserInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Attachment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="FileName"/>
+					<xs:element ref="Reference"/>
+				</xs:choice>
+				<xs:element ref="FileSize" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccountName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AccountNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BloombergEmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BloombergUUID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID1">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ClientID2">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CorporateEmailAddress">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DisclaimerReference">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DisclaimerText">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FileName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FileSize">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirmNumber">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FirstName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ForwardedBy">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LastName">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MsgBody">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MsgID">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MsgLang">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MsgTime">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Reference">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Subject">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Version">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
